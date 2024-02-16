@@ -77,8 +77,8 @@ fi
 # Stow nvim configuration selectively into ~/.config
 if [ -d "nvim" ]; then
     # Ensure ~/.config exists
-    mkdir -p ~/.config
-    stow -v -R -t ~/.config nvim
+    mkdir -p ~/.config/nvim
+    stow -v -R -t ~/.config/nvim nvim
 else
     echo "nvim directory not found."
 fi
