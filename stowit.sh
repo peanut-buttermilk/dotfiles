@@ -65,7 +65,7 @@ do
 
    # Stow tmux configuration
    if [ -d "$pkg" ]; then
-       stow pkg
+       stow $pkg
    else
        echo "$pkg not found"
    fi
