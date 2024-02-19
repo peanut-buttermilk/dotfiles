@@ -47,6 +47,9 @@ check_and_install() {
 check_and_install "stow"
 check_and_install "nvim"
 check_and_install "tmux"
+check_and_install "zsh"
+check_and_install "picom"
+check_and_install "polybar"
 
 
 # Function to stow packages
