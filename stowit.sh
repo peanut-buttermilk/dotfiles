@@ -50,6 +50,7 @@ check_and_install "tmux"
 check_and_install "zsh"
 check_and_install "picom"
 check_and_install "polybar"
+check_and_install "rofi"
 
 echo "Starting to stow dotfiles..."
 
