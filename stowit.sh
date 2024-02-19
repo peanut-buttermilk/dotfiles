@@ -51,40 +51,26 @@ check_and_install "zsh"
 check_and_install "picom"
 check_and_install "polybar"
 
-
-# Function to stow packages
-stow_package() {
-    package=$1
-    target=$2
-    if [[ -n "$target" ]]; then
-        echo "Stowing $package to $target..."
-        stow --target="$target" -vR "$package"
-    else
-        echo "Stowing $package..."
-        stow -vR "$package"
-    fi
-}
-
 echo "Starting to stow dotfiles..."
 
 # Ensure the script runs from the directory where it's located
 cd "$(dirname "$0")"
+## declare an array variable
+declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar")
 
-# Stow tmux configuration
-if [ -d "tmux" ]; then
-    stow -v -R -t ~ tmux
-else
-    echo "tmux directory not found."
-fi
+## now loop through the above array
+for pkg in "${arr[@]}"
+do
+   echo "stowing: $pkg"
 
-# Stow nvim configuration selectively into ~/.config
-if [ -d "nvim" ]; then
-    # Ensure ~/.config exists
-    mkdir -p ~/.config/nvim
-    stow -v -R -t ~/.config/nvim nvim
-else
-    echo "nvim directory not found."
-fi
+   # Stow tmux configuration
+   if [ -d "$pkg" ]; then
+       stow pkg
+   else
+       echo "$pkg not found"
+   fi
+
+done
 
 echo "Dotfiles stow completed."
 
