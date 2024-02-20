@@ -2,6 +2,7 @@
 
 # Refresh sudo credential cache
 sudo -v
+sudo pacman -Syu
 
 # Function to install software based on the operating system
 install_software() {
@@ -45,6 +46,7 @@ check_and_install() {
 
 # Install GNU Stow, Neovim, and tmux if they are not installed
 check_and_install "stow"
+check_and_install "brightnessctl"
 
 echo "Starting to stow dotfiles..."
 
