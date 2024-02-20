@@ -44,9 +44,36 @@ check_and_install() {
     fi
 }
 
+install_oh_my_zsh() {
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        echo "Installing Oh My Zsh"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    else
+        echo "Oh My Zsh is already installed."
+    fi
+}
+
+# Function to install Powerlevel10k
+run_install_powerlevel10k() {
+    echo "Installing Powerlevel10k theme..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >>~/.zshrc
+}
+
+install_p10k() {
+
+    if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+        run_install_powerlevel10k
+    else
+        echo "Powerlevel10k theme is already installed."
+    fi
+}
+
 # Install GNU Stow, Neovim, and tmux if they are not installed
 check_and_install "stow"
 check_and_install "brightnessctl"
+install_oh_my_zsh
+install_p10k
 
 echo "Starting to stow dotfiles..."
 
