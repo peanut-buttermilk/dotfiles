@@ -45,24 +45,20 @@ check_and_install() {
 
 # Install GNU Stow, Neovim, and tmux if they are not installed
 check_and_install "stow"
-check_and_install "nvim"
-check_and_install "tmux"
-check_and_install "zsh"
-check_and_install "picom"
-check_and_install "polybar"
-check_and_install "rofi"
 
 echo "Starting to stow dotfiles..."
 
 # Ensure the script runs from the directory where it's located
 cd "$(dirname "$0")"
 ## declare an array variable
-declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar")
+declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty")
 
 ## now loop through the above array
 for pkg in "${arr[@]}"
 do
    echo "stowing: $pkg"
+   check_and_install "$pkg"
+
 
    # Stow tmux configuration
    if [ -d "$pkg" ]; then
