@@ -4,6 +4,11 @@
 sudo -v
 sudo pacman -Syu
 
+git pull
+git submodule init
+git submodule sync --recursive
+git submodule update --recursive
+
 # Function to install software based on the operating system
 install_software() {
     software=$1
