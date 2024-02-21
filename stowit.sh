@@ -80,7 +80,7 @@ echo "Starting to stow dotfiles..."
 # Ensure the script runs from the directory where it's located
 cd "$(dirname "$0")"
 ## declare an array variable
-declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig")
+declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig" "variety")
 
 ## now loop through the above array
 for pkg in "${arr[@]}"
