@@ -82,6 +82,8 @@ check_and_install "tsserver"
 check_and_install "brightnessctl"
 check_and_install "shutter"
 check_and_install "feh"
+check_and_install "bluez"
+check_and_install "bluez-utils"
 install_oh_my_zsh
 install_p10k
 
