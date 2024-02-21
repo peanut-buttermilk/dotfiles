@@ -71,6 +71,9 @@ install_p10k() {
 
 # Install GNU Stow, Neovim, and tmux if they are not installed
 check_and_install "stow"
+check_and_install "pyright"
+check_and_install "html"
+check_and_install "tsserver"
 check_and_install "brightnessctl"
 install_oh_my_zsh
 install_p10k
