@@ -196,7 +196,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Ctrl+q exec i3lock -c 000000
 
 # disabling feh wallpaper infavor of variety
-# exec_always --no-startup-id feh --bg-scale /home/bcherukuri/Photos/nick-andreka-o1FoGkNG9MU-unsplash.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/variety/Favorites/OHR.WesternMonarchs_EN-US8386035297_UHD.jpg
 
 exec_always --no-startup-id xautolock -time 20 -locker 'i3lock -c 000000' -notify 30 -notifier "notify-send -u critical -t 10000 'LOCKING screen in 30 seconds'"
 

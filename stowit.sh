@@ -81,6 +81,7 @@ check_and_install "html"
 check_and_install "tsserver"
 check_and_install "brightnessctl"
 check_and_install "shutter"
+check_and_install "feh"
 install_oh_my_zsh
 install_p10k
 
