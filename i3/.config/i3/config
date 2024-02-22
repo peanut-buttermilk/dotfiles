@@ -195,7 +195,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # lock screen
-bindsym $mod+Ctrl+q exec i3lock -c 000000
+bindsym $mod+Control+q exec i3lock -c 000000
 
 # disabling feh wallpaper infavor of variety
 exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/OHR.WesternMonarchs_EN-US8386035297_UHD.jpg

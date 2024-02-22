@@ -86,6 +86,7 @@ check_and_install "bluez"
 check_and_install "bluez-utils"
 check_and_install "pavucontrol"
 check_and_install "alsa-utils"
+check_and_install "i3lock"
 install_oh_my_zsh
 install_p10k
 
