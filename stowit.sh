@@ -87,6 +87,15 @@ check_and_install "bluez-utils"
 check_and_install "pavucontrol"
 check_and_install "alsa-utils"
 check_and_install "i3lock"
+check_and_install "xss-lock"
+check_and_install "pulseaudio-alsa" # for PulseAudio to manage ALSA as well, see #ALSA
+check_and_install "pulseaudio-bluetooth" # for bluetooth support (Bluez), see bluetooth headset page
+check_and_install "pulseaudio-equalizer" # for equalizer sink (qpaeq)
+check_and_install "pulseaudio-jack" # for JACK sink, source and jackdbus detection
+check_and_install "pulseaudio-lirc" # for infrared volume control with LIRC
+check_and_install "pulseaudio-zeroconf" # for Zeroconf (Avahi/DNS-SD) support
+check_and_install "xautolock"
+
 install_oh_my_zsh
 install_p10k
 
@@ -95,7 +104,7 @@ echo "Starting to stow dotfiles..."
 # Ensure the script runs from the directory where it's located
 cd "$(dirname "$0")"
 ## declare an array variable
-declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig" "i3" "p10k")
+declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig" "i3-wm" "p10k")
 
 ## now loop through the above array
 for pkg in "${arr[@]}"
