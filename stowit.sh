@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ensure the script runs from the directory where it's located
+cd "$(dirname "$0")"
+
 # Refresh sudo credential cache
 sudo -v
 
@@ -9,7 +12,7 @@ update_system_packages() {
         Linux*)
             distro=$(grep ^ID= /etc/os-release | cut -d= -f2 | tr -d '"')
             if [ "$distro" = "ubuntu" ]; then
-                sudo apt-get update && sudo apt-get upgrade -y
+                sudo add-apt-repository universe && sudo apt-get update && sudo apt-get upgrade -y
             elif [ "$distro" = "arch" ]; then
                 sudo pacman -Syu --noconfirm
             else
@@ -108,8 +111,6 @@ install_p10k
 
 echo "Starting to stow dotfiles..."
 
-# Ensure the script runs from the directory where it's located
-cd "$(dirname "$0")"
 ## declare an array variable
 declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig" "i3-wm" "p10k")
 
