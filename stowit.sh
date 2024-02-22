@@ -98,14 +98,45 @@ install_p10k() {
     fi
 }
 
+install_jetbrains_mono_nerd_font() {
+    # Define the URL for downloading the fonts
+    FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip"
+
+    # Define the local fonts directory
+    FONT_DIR="$HOME/.local/share/fonts/JetBrainsMonoNerdFont"
+
+    # Create the font directory if it doesn't exist
+    mkdir -p "$FONT_DIR"
+
+    # Download the font zip file to the font directory
+    echo "Downloading JetBrains Mono Nerd Font..."
+    wget -qO "$FONT_DIR/JetBrainsMono.zip" "$FONT_URL"
+
+    # Navigate to the font directory
+    cd "$FONT_DIR"
+
+    # Unzip the fonts
+    echo "Extracting fonts..."
+    unzip -qo JetBrainsMono.zip
+
+    # Remove the zip file
+    rm JetBrainsMono.zip
+
+    # Update the font cache
+    echo "Updating font cache..."
+    fc-cache -fv
+
+    echo "JetBrains Mono Nerd Font installation complete!"
+}
+
 # List of software to check and install
-software_list=("stow" "pyright" "html" "tsserver" "brightnessctl" "shutter" "feh" "bluez" "bluez-utils" "pavucontrol" "alsa-utils" "i3lock" "xss-lock" "pulseaudio-alsa" "pulseaudio-bluetooth" "pulseaudio-equalizer" "pulseaudio-jack" "pulseaudio-lirc" "pulseaudio-zeroconf" "xautolock" "ripgrep")
+software_list=("wget" "zip" "unzip" "stow" "pyright" "html" "tsserver" "brightnessctl" "shutter" "feh" "bluez" "bluez-utils" "pavucontrol" "alsa-utils" "i3lock" "xss-lock" "pulseaudio-alsa" "pulseaudio-bluetooth" "pulseaudio-equalizer" "pulseaudio-jack" "pulseaudio-lirc" "pulseaudio-zeroconf" "xautolock" "ripgrep")
 
 for software in "${software_list[@]}"; do
     check_and_install "$software"
 done
 
-
+install_jetbrains_mono_nerd_font
 install_oh_my_zsh
 install_p10k
 
