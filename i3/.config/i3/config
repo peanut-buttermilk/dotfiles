@@ -47,6 +47,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym $mod+Shift+p exec pavucontrol
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -196,7 +198,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Ctrl+q exec i3lock -c 000000
 
 # disabling feh wallpaper infavor of variety
-exec_always --no-startup-id feh --bg-scale ~/.config/variety/Favorites/OHR.WesternMonarchs_EN-US8386035297_UHD.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/OHR.WesternMonarchs_EN-US8386035297_UHD.jpg
 
 exec_always --no-startup-id xautolock -time 20 -locker 'i3lock -c 000000' -notify 30 -notifier "notify-send -u critical -t 10000 'LOCKING screen in 30 seconds'"
 

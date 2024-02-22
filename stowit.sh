@@ -84,6 +84,8 @@ check_and_install "shutter"
 check_and_install "feh"
 check_and_install "bluez"
 check_and_install "bluez-utils"
+check_and_install "pavucontrol"
+check_and_install "alsa-utils"
 install_oh_my_zsh
 install_p10k
 
@@ -92,7 +94,7 @@ echo "Starting to stow dotfiles..."
 # Ensure the script runs from the directory where it's located
 cd "$(dirname "$0")"
 ## declare an array variable
-declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig" "variety" "i3" "p10k")
+declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig" "i3" "p10k")
 
 ## now loop through the above array
 for pkg in "${arr[@]}"
