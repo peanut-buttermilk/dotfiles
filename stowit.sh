@@ -2,7 +2,28 @@
 
 # Refresh sudo credential cache
 sudo -v
-sudo pacman -Syu
+
+# Update system packages based on the operating system
+update_system_packages() {
+    case "$(uname -s)" in
+        Linux*)
+            distro=$(grep ^ID= /etc/os-release | cut -d= -f2 | tr -d '"')
+            if [ "$distro" = "ubuntu" ]; then
+                sudo apt-get update && sudo apt-get upgrade -y
+            elif [ "$distro" = "arch" ]; then
+                sudo pacman -Syu --noconfirm
+            else
+                echo "Unsupported Linux distribution for automatic updates."
+            fi
+            ;;
+        Darwin*)
+            brew update && brew upgrade
+            ;;
+        *)
+            echo "Unsupported operating system for automatic updates."
+            ;;
+    esac
+}
 
 git pull
 git submodule init
@@ -74,27 +95,13 @@ install_p10k() {
     fi
 }
 
-# Install GNU Stow, Neovim, and tmux if they are not installed
-check_and_install "stow"
-check_and_install "pyright"
-check_and_install "html"
-check_and_install "tsserver"
-check_and_install "brightnessctl"
-check_and_install "shutter"
-check_and_install "feh"
-check_and_install "bluez"
-check_and_install "bluez-utils"
-check_and_install "pavucontrol"
-check_and_install "alsa-utils"
-check_and_install "i3lock"
-check_and_install "xss-lock"
-check_and_install "pulseaudio-alsa" # for PulseAudio to manage ALSA as well, see #ALSA
-check_and_install "pulseaudio-bluetooth" # for bluetooth support (Bluez), see bluetooth headset page
-check_and_install "pulseaudio-equalizer" # for equalizer sink (qpaeq)
-check_and_install "pulseaudio-jack" # for JACK sink, source and jackdbus detection
-check_and_install "pulseaudio-lirc" # for infrared volume control with LIRC
-check_and_install "pulseaudio-zeroconf" # for Zeroconf (Avahi/DNS-SD) support
-check_and_install "xautolock"
+# List of software to check and install
+software_list=("stow" "pyright" "html" "tsserver" "brightnessctl" "shutter" "feh" "bluez" "bluez-utils" "pavucontrol" "alsa-utils" "i3lock" "xss-lock" "pulseaudio-alsa" "pulseaudio-bluetooth" "pulseaudio-equalizer" "pulseaudio-jack" "pulseaudio-lirc" "pulseaudio-zeroconf" "xautolock" "ripgrep")
+
+for software in "${software_list[@]}"; do
+    check_and_install "$software"
+done
+
 
 install_oh_my_zsh
 install_p10k
