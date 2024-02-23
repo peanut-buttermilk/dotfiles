@@ -76,7 +76,7 @@ check_and_install() {
 install_oh_my_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "Installing Oh My Zsh"
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended > /dev/null 2>&1
     else
         echo "Oh My Zsh is already installed."
     fi
@@ -113,7 +113,7 @@ install_jetbrains_mono_nerd_font() {
     wget -qO "$FONT_DIR/JetBrainsMono.zip" "$FONT_URL"
 
     # Navigate to the font directory
-    cd "$FONT_DIR"
+    pushd "$FONT_DIR"
 
     # Unzip the fonts
     echo "Extracting fonts..."
@@ -127,10 +127,11 @@ install_jetbrains_mono_nerd_font() {
     fc-cache -fv
 
     echo "JetBrains Mono Nerd Font installation complete!"
+    popd
 }
 
 # List of software to check and install
-software_list=("wget" "zip" "unzip" "stow" "pyright" "html" "tsserver" "brightnessctl" "shutter" "feh" "bluez" "bluez-utils" "pavucontrol" "alsa-utils" "i3lock" "xss-lock" "pulseaudio-alsa" "pulseaudio-bluetooth" "pulseaudio-equalizer" "pulseaudio-jack" "pulseaudio-lirc" "pulseaudio-zeroconf" "xautolock" "ripgrep")
+software_list=("wget" "zip" "unzip" "stow" "pyright" "html" "tsserver" "brightnessctl" "shutter" "feh" "bluez" "bluez-utils" "pavucontrol" "alsa-utils" "i3lock" "xss-lock" "pulseaudio-alsa" "pulseaudio-bluetooth" "pulseaudio-equalizer" "pulseaudio-jack" "pulseaudio-lirc" "pulseaudio-zeroconf" "xautolock" "ripgrep" "sddm" "xorg-xrandr" "bind-tools" "which" "fakeroot" "make" "gcc" "rofi")
 
 for software in "${software_list[@]}"; do
     check_and_install "$software"
@@ -140,7 +141,7 @@ install_jetbrains_mono_nerd_font
 install_oh_my_zsh
 install_p10k
 
-echo "Starting to stow dotfiles..."
+echo "Starting to stow dotfiles...: $(pwd)"
 
 ## declare an array variable
 declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig" "i3-wm" "p10k")
