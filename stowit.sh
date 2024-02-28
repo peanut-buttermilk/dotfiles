@@ -63,13 +63,18 @@ install_software() {
 }
 
 # Function to check if software is installed and install it if not
+# Modified function to handle command:package pairs
 check_and_install() {
-    software=$1
-    if ! command -v $software &> /dev/null; then
-        echo "$software could not be found. Attempting to install..."
-        install_software $software
+    # Split input into command and package using IFS and read
+    IFS=':' read -r command package <<< "$1"
+    # If package is empty, use command as package
+    [[ -z "$package" ]] && package=$command
+    
+    if ! command -v $command &> /dev/null; then
+        echo "$command could not be found. Attempting to install $package..."
+        install_software $package
     else
-        echo "$software is already installed."
+        echo "$command is already installed."
     fi
 }
 
@@ -99,6 +104,12 @@ install_p10k() {
 }
 
 install_jetbrains_mono_nerd_font() {
+    # Check if JetBrains Mono Nerd Font is already installed
+    if fc-list | grep -qi "JetBrainsMono Nerd Font"; then
+        echo "JetBrains Mono Nerd Font is already installed."
+        return 0
+    fi
+
     # Define the URL for downloading the fonts
     FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip"
 
@@ -131,8 +142,39 @@ install_jetbrains_mono_nerd_font() {
 }
 
 # List of software to check and install
-software_list=("wget" "zip" "unzip" "stow" "pyright" "html" "tsserver" "brightnessctl" "shutter" "feh" "bluez" "bluez-utils" "pavucontrol" "alsa-utils" "i3lock" "xss-lock" "pulseaudio-alsa" "pulseaudio-bluetooth" "pulseaudio-equalizer" "pulseaudio-jack" "pulseaudio-lirc" "pulseaudio-zeroconf" "xautolock" "ripgrep" "sddm" "xorg-xrandr" "bind-tools" "which" "fakeroot" "make" "gcc" "rofi")
+software_list=(
+    "alsa-utils"
+    "bind-tools"
+    "bluez"
+    "bluez-utils"
+    "brightnessctl"
+    "fakeroot"
+    "feh"
+    "gcc"
+    "i3loc"
+    "make"
+    "pavucontrol"
+    "pulseaudio-alsa"
+    "pulseaudio-bluetooth"
+    "pulseaudio-equalizer"
+    "pulseaudio-jack"
+    "pulseaudio-lirc"
+    "pulseaudio-zeroconf"
+    "ripgrep"
+    "rofi"
+    "sddm"
+    "shutter"
+    "stow"
+    "unzip"
+    "wget"
+    "which"
+    "xautolock"
+    "xorg-xrandr"
+    "xss-lock"
+    "zip"
+)
 
+# Iterate over the associative array
 for software in "${software_list[@]}"; do
     check_and_install "$software"
 done
@@ -144,7 +186,17 @@ install_p10k
 echo "Starting to stow dotfiles...: $(pwd)"
 
 ## declare an array variable
-declare -a arr=("nvim" "tmux" "zsh" "picom" "polybar" "alacritty" "fontconfig" "i3-wm" "p10k")
+declare -a arr=(
+    "alacritty"
+    "fontconfig"
+    "i3-wm:i3"
+    "nvim"
+    "p10k"
+    "picom"
+    "polybar"
+    "tmux"
+    "zsh"
+)
 
 ## now loop through the above array
 for pkg in "${arr[@]}"
@@ -152,12 +204,16 @@ do
    echo "stowing: $pkg"
    check_and_install "$pkg"
 
-
+   # Split input into command and package using IFS and read
+   IFS=':' read -r command package <<< "$pkg"
+   # If package is empty, use command as package
+   [[ -z "$package" ]] && package=$command
+ 
    # Stow tmux configuration
-   if [ -d "$pkg" ]; then
-       stow $pkg
+   if [ -d "$package" ]; then
+       stow $package
    else
-       echo "$pkg not found"
+       echo "$package not found"
    fi
 
 done
