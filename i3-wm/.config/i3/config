@@ -156,6 +156,9 @@ bindsym $mod+0 workspace number $ws10
 
 bindsym $mod+Control+0 move workspace to output eDP-1
 bindsym $mod+Control+1 move workspace to output DP-1
+bindsym $mod+Control+2 move workspace to output DP-2
+bindsym $mod+Control+3 move workspace to output DP-3
+bindsym $mod+Control+4 move workspace to output DP-4
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
