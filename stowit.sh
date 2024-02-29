@@ -177,6 +177,7 @@ software_list=(
     "aconnect:alsa-utils"
     "gcc:base-devel"
     "dig:bind-tools"
+    "blueman"
     "bluez"
     "bluetoothctl:bluez-utils"
     "brightnessctl"
