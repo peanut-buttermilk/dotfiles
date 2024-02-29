@@ -6,6 +6,15 @@ cd "$(dirname "$0")"
 # Refresh sudo credential cache
 sudo -v
 
+cleanup() {
+  echo "Caught SIGINT signal. Cleaning up..."
+  # Place your cleanup commands here
+  exit 1
+}
+
+# Trap SIGINT (Ctrl+C) and call the cleanup() function
+trap cleanup SIGINT
+
 # Update system packages based on the operating system
 update_system_packages() {
     case "$(uname -s)" in
@@ -15,6 +24,7 @@ update_system_packages() {
                 sudo add-apt-repository universe && sudo apt-get update && sudo apt-get upgrade -y
             elif [ "$distro" = "arch" ]; then
                 sudo pacman -Syu --noconfirm
+                yay -Syu --noconfirm
             else
                 echo "Unsupported Linux distribution for automatic updates."
             fi
@@ -28,16 +38,33 @@ update_system_packages() {
     esac
 }
 
-git pull
-git submodule init
-git submodule sync --recursive
-git submodule update --recursive
+refresh_dotfiles() {
+    git pull
+    git submodule init
+    git submodule sync --recursive
+    git submodule update --recursive
+}
+
+# Update system packages based on the operating system
+setup_yay() {
+    if ! command -v yay &> /dev/null; then
+        sudo pacman -S --noconfirm git base-devel git
+        TEMP=$(mktemp)
+        git clone sudo git clone https://aur.archlinux.org/yay.git $TEMP
+        pushd $TEMP
+        makepkg -si
+        popd
+        rm -rf $TEMP
+    else
+        echo "yay is already installed."
+    fi
+}
 
 # Function to install software based on the operating system
 install_software() {
     software=$1
     ubuntu_command="sudo apt-get install -y $1"
-    arch_command="sudo pacman -S --noconfirm $1"
+    arch_command="yay -Qq $1 &> /dev/null || yay -S --noconfirm $1"
     macos_command="brew install $1"
 
     # Detect the operating system
@@ -49,6 +76,7 @@ install_software() {
                 eval $ubuntu_command
             elif [ "$distro" = "arch" ]; then
                 eval $arch_command
+                setup_yay
             else
                 echo "Unsupported Linux distribution for automatic installation."
             fi
@@ -141,19 +169,20 @@ install_jetbrains_mono_nerd_font() {
     popd
 }
 
+update_system_packages
+refresh_dotfiles
+
 # List of software to check and install
 software_list=(
-    "alsa-utils"
-    "bind-tools"
+    "aconnect:alsa-utils"
+    "gcc:base-devel"
+    "dig:bind-tools"
     "bluez"
-    "bluez-utils"
+    "bluetoothctl:bluez-utils"
     "brightnessctl"
-    "fakeroot"
     "feh"
-    "gcc"
     "i3lock"
     "hostname:inetutils"
-    "make"
     "pavucontrol"
     "pulseaudio-alsa"
     "pulseaudio-bluetooth"
@@ -161,7 +190,7 @@ software_list=(
     "pulseaudio-jack"
     "pulseaudio-lirc"
     "pulseaudio-zeroconf"
-    "ripgrep"
+    "rg:ripgrep"
     "rofi"
     "sddm"
     "shutter"
@@ -170,9 +199,10 @@ software_list=(
     "wget"
     "which"
     "xautolock"
-    "xorg-xrandr"
+    "xrandr:xorg-xrandr"
     "xss-lock"
     "zip"
+    "zoom"
 )
 
 # Iterate over the associative array
@@ -190,7 +220,7 @@ echo "Starting to stow dotfiles...: $(pwd)"
 declare -a arr=(
     "alacritty"
     "fontconfig"
-    "i3-wm:i3"
+    "i3:i3-wm"
     "nvim"
     "p10k"
     "picom"
