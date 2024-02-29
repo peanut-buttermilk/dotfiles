@@ -232,7 +232,7 @@ declare -a arr=(
 ## now loop through the above array
 for pkg in "${arr[@]}"
 do
-   echo "stowing: $pkg"
+   echo "Installing package: $pkg"
    check_and_install "$pkg"
 
    # Split input into command and package using IFS and read
@@ -242,6 +242,7 @@ do
  
    # Stow tmux configuration
    if [ -d "$package" ]; then
+       echo "stowing package: $package"
        stow $package
    else
        echo "$package not found"
