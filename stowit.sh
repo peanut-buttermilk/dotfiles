@@ -169,6 +169,18 @@ install_jetbrains_mono_nerd_font() {
     popd
 }
 
+setup_tmux_plugin_manager() {
+   if [ -d "$HOME/.tmux/plugins/tpm" ]; then
+       echo "tmux plugin manager already installed"
+       return 0
+   fi
+
+   echo "cloning up tmux plugin manager tpm"
+
+   mkdir -p ~/.tmux/plugins/
+   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
 update_system_packages
 refresh_dotfiles
 
@@ -252,4 +264,6 @@ do
 done
 
 echo "Dotfiles stow completed."
+
+setup_tmux_plugin_manager
 
