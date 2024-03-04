@@ -98,7 +98,9 @@ check_and_install() {
     # If package is empty, use command as package
     [[ -z "$package" ]] && package=$command
     
-    if ! command -v $command &> /dev/null; then
+    if [ x$command = "xignore" ] ; then
+        echo "ignoring $1"
+    elif ! command -v $command &> /dev/null; then
         echo "$command could not be found. Attempting to install $package..."
         install_software $package
     else
@@ -181,21 +183,26 @@ setup_tmux_plugin_manager() {
    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
+refresh_applications() {
+    update-desktop-database -v ~/.local/share/applications
+}
+
 update_system_packages
 refresh_dotfiles
 
 # List of software to check and install
 software_list=(
     "aconnect:alsa-utils"
-    "gcc:base-devel"
-    "dig:bind-tools"
     "blueman"
-    "bluez"
     "bluetoothctl:bluez-utils"
+    "bluez"
     "brightnessctl"
+    "dig:bind-tools"
     "feh"
-    "i3lock"
+    "fusermount:fuse2"
+    "gcc:base-devel"
     "hostname:inetutils"
+    "i3lock"
     "pavucontrol"
     "pulseaudio-alsa"
     "pulseaudio-bluetooth"
@@ -234,8 +241,9 @@ declare -a arr=(
     "alacritty"
     "fontconfig"
     "i3:i3-wm"
+    "ignore:applications"
+    "ignore:p10k"
     "nvim"
-    "p10k"
     "picom"
     "polybar"
     "tmux"
@@ -266,4 +274,4 @@ done
 echo "Dotfiles stow completed."
 
 setup_tmux_plugin_manager
-
+refresh_applications
