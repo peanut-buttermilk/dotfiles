@@ -23,6 +23,9 @@ font pango:JetBrainsMono Nerd Font 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# enable X from root for running xrandr when new monitor detected
+exec --no-startup-id xhost +SI:localuser:root
+
 # enable second monitor.
 # exec --no-startup-id xrandr --output DP-0 --mode 3840x2160 --left-of HDMI-0
 

@@ -219,6 +219,7 @@ software_list=(
     "wget"
     "which"
     "xautolock"
+    "xhost:xorg-xhost"
     "xrandr:xorg-xrandr"
     "xss-lock"
     "zip"
