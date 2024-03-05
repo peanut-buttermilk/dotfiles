@@ -221,6 +221,7 @@ software_list=(
     "pulseaudio-lirc"
     "pulseaudio-zeroconf"
     "rg:ripgrep"
+    "get-edid:read-edid"
     "rofi"
     "sddm"
     "shutter"
