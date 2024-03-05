@@ -11,7 +11,7 @@ cleanup() {
 autodetect() {
     DOTFILES=/home/bcherukuri/dotfiles
     MONITORS=$(xrandr --query | grep " connected" | sort | cut -d' ' -f1 | tr -d '\n')
-    CONFIG=${DOTFILES}/udev/scripts/xrandr/${MONITORS}.sh
+    CONFIG=${DOTFILES}/udev/scripts/xrandr/config/${MONITORS}.sh
     
     if [ -f $CONFIG ]; then
         $CONFIG

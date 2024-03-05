@@ -187,6 +187,16 @@ refresh_applications() {
     update-desktop-database -v ~/.local/share/applications
 }
 
+install_udev_rules() {
+    echo "[Start] Installing udev rules"
+    sudo cp -rv ~/dotfiles/udev/rules.d/* /etc/udev/rules.d/
+    echo "[Done] Installing udev rules"
+}
+
+refresh_displays() {
+    ./udev/scripts/xrandr/autodetect.sh
+}
+
 update_system_packages
 refresh_dotfiles
 
@@ -276,3 +286,8 @@ echo "Dotfiles stow completed."
 
 setup_tmux_plugin_manager
 refresh_applications
+install_udev_rules
+refresh_displays
+
+echo "End"
+
