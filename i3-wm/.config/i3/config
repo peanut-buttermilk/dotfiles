@@ -73,6 +73,9 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# open VPN
+bindsym $mod+Shift+v exec "globalprotect launch-ui"
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 
