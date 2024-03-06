@@ -11,14 +11,18 @@ cleanup() {
 autodetect() {
     DOTFILES=/home/bcherukuri/dotfiles
     MONITORS=$(xrandr --query | grep " connected" | sort | cut -d' ' -f1 | tr -d '\n')
-    CONFIG=${DOTFILES}/udev/scripts/xrandr/config/${MONITORS}.sh
+    SHA=$(hwinfo --monitor | awk -F': ' '/Unique ID:/{print $2}' | sort | tr -d '\n' | sha256sum | awk '{print $1}')       
+
+    CONFIG=${DOTFILES}/udev/scripts/xrandr/config/${MONITORS}-${SHA}.sh
     
-    if [ -f $CONFIG ]; then
-        $CONFIG
-    else
+    if [ ! -f $CONFIG ]; then
         echo "$CONFIG doesn't exist, running xrandr --auto"
-        xrandr --auto
+        echo "#!/bin/sh -x" >> $CONFIG
+        echo "xrandr --auto" >> $CONFIG
+        chmod +x $CONFIG
     fi
+
+    $CONFIG
 }
 
 cleanup
