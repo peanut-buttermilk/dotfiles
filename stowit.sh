@@ -171,7 +171,7 @@ install_jetbrains_mono_nerd_font() {
     popd
 }
 
-setup_tmux_plugin_manager() {
+install_tmux() {
    if [ -d "$HOME/.tmux/plugins/tpm" ]; then
        echo "tmux plugin manager already installed"
        return 0
@@ -181,6 +181,11 @@ setup_tmux_plugin_manager() {
 
    mkdir -p ~/.tmux/plugins/
    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
+setup_tmux_plugin_manager() {
+    install_tmux
+    ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 }
 
 refresh_applications() {
