@@ -212,6 +212,7 @@ software_list=(
     "fusermount:fuse2"
     "gcc:base-devel"
     "hostname:inetutils"
+    "hwinfo"
     "i3lock"
     "pavucontrol"
     "pulseaudio-alsa"
