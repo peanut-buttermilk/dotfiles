@@ -25,6 +25,11 @@ autodetect() {
     $CONFIG
 }
 
+reload_i3() {
+    /usr/bin/i3-msg restart
+}
+
 cleanup
 autodetect
+# reload_i3
 

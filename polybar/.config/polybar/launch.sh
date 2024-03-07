@@ -16,3 +16,6 @@ done
 
 echo "Bars launched..."
 
+~/dotfiles/udev/scripts/xrandr/autodetect.sh
+
+
