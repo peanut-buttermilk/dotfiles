@@ -85,6 +85,9 @@ bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
+# show list of current windows
+bindsym $mod+t exec "rofi -show window -window-thumbnail"
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
