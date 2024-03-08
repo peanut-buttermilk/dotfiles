@@ -8,6 +8,27 @@ cleanup() {
     done
 }
 
+# Function to acquire a lock.
+lock() {
+    local lockfile="/tmp/xrandr-autodetect-sh.lock"
+    exec 200>$lockfile
+
+    if ! flock -n 200; then
+        echo "Another instance of the script is running."
+        exit 1
+    fi
+    # The lock is now acquired and will be automatically
+    # released when the script exits or when the file descriptor
+    # is explicitly closed.
+}
+
+# Function to release the lock.
+unlock() {
+    # Explicitly release the lock by closing the file descriptor.
+    flock -u 200
+    exec 200>&-
+}
+
 autodetect() {
     DOTFILES=/home/bcherukuri/dotfiles
     MONITORS=$(xrandr --query | grep " connected" | sort | cut -d' ' -f1 | tr -d '\n')
@@ -39,9 +60,11 @@ reload_i3() {
 }
 
 # give it a second for all the monitors to be connected
+lock
 sleep 2
 
 cleanup
 autodetect
 # reload_i3
+unlock
 
