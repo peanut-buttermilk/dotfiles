@@ -43,6 +43,7 @@ refresh_dotfiles() {
     git submodule init
     git submodule sync --recursive
     git submodule update --recursive
+    git submodule foreach --recursive git checkout master
 }
 
 # Update system packages based on the operating system
