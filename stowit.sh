@@ -182,11 +182,22 @@ install_tmux() {
 
    mkdir -p ~/.tmux/plugins/
    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 }
 
 setup_tmux_plugin_manager() {
     install_tmux
-    ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+
+    # Load TMUX environment (simulate as if within TMUX for TPM scripts)
+    export TMUX_TMPDIR=/tmp
+    export TMUX_PANE=%1
+    export TMUX=1
+    export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux/plugins/"
+
+    # Install plugins using TPM
+    bash "$TMUX_PLUGIN_MANAGER_PATH/tpm/scripts/install_plugins.sh"
+    bash "$TMUX_PLUGIN_MANAGER_PATH/tpm/scripts/update_plugin.sh" all
+    bash "$TMUX_PLUGIN_MANAGER_PATH/tpm/scripts/clean_plugins.sh"
 }
 
 refresh_applications() {
