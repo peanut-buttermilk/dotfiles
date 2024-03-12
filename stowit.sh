@@ -225,7 +225,7 @@ refresh_displays() {
 
 enable_power_save() {
     sudo systemctl stop tlp.service
-    cp ./tlp/etc/tlp.conf /etc/tlp.conf
+    sudo cp ./tlp/etc/tlp.conf /etc/tlp.conf
     sudo systemctl enable tlp.service
     sudo systemctl start tlp.service
 
