@@ -1,5 +1,6 @@
 #!/bin/bash -x
 
+umask 002
 export DISPLAY=":0"
 
 cleanup() {
@@ -10,8 +11,11 @@ cleanup() {
 
 # Function to acquire a lock.
 lock() {
-    local lockfile="/tmp/xrandr-autodetect-sh.lock"
+    DOTFILES="/home/bcherukuri/dotfiles"
+    CONFIG="${DOTFILES}/udev/scripts/xrandr/config/"
+    local lockfile="$CONFIG/xrandr-autodetect-sh.lock"
     exec 200>$lockfile
+    sudo chgrp udevscript $lockfile
 
     if ! flock -n 200; then
         echo "Another instance of the script is running."

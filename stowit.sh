@@ -46,6 +46,12 @@ refresh_dotfiles() {
     git submodule foreach --recursive git checkout master
 }
 
+firmware_update() {
+    sudo fwupdmgr refresh
+    sudo fwupdmgr get-updates
+    sudo fwupdmgr update
+}
+
 # Update system packages based on the operating system
 setup_yay() {
     if ! command -v yay &> /dev/null; then
@@ -207,6 +213,9 @@ refresh_applications() {
 install_udev_rules() {
     echo "[Start] Installing udev rules"
     sudo cp -rv ~/dotfiles/udev/rules.d/* /etc/udev/rules.d/
+    sudo groupadd udevscript
+    sudo usermod -aG udevscript bcherukuri
+    sudo usermod -aG udevscript root
     echo "[Done] Installing udev rules"
 }
 
@@ -214,24 +223,37 @@ refresh_displays() {
     ./udev/scripts/xrandr/autodetect.sh
 }
 
+enable_power_save() {
+    sudo systemctl stop tlp.service
+    cp ./tlp/etc/tlp.conf /etc/tlp.conf
+    sudo systemctl enable tlp.service
+    sudo systemctl start tlp.service
+
+    sudo powertop --auto-tune
+}
+
 update_system_packages
 refresh_dotfiles
 
 # List of software to check and install
 software_list=(
+    "acpi"
     "aconnect:alsa-utils"
     "blueman"
     "bluetoothctl:bluez-utils"
     "bluez"
     "brightnessctl"
     "dig:bind-tools"
+    "ethtool"
     "feh"
     "fusermount:fuse2"
+    "fwupdmgr:fwupd"
     "gcc:base-devel"
     "hostname:inetutils"
     "hwinfo"
     "i3lock"
     "pavucontrol"
+    "powertop"
     "pulseaudio-alsa"
     "pulseaudio-bluetooth"
     "pulseaudio-equalizer"
@@ -243,8 +265,11 @@ software_list=(
     "rofi"
     "sddm"
     "shutter"
+    "smartctl:smartmontools"
     "stow"
+    "tlp"
     "unzip"
+    "upower"
     "wget"
     "which"
     "xautolock"
@@ -260,6 +285,7 @@ for software in "${software_list[@]}"; do
     check_and_install "$software"
 done
 
+firmware_update
 install_jetbrains_mono_nerd_font
 install_oh_my_zsh
 install_p10k
@@ -303,10 +329,12 @@ done
 
 echo "Dotfiles stow completed."
 
+
 setup_tmux_plugin_manager
 refresh_applications
 install_udev_rules
 refresh_displays
+enable_power_save
 
 echo "End"
 
