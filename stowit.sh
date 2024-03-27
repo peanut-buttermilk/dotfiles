@@ -220,7 +220,7 @@ install_udev_rules() {
 }
 
 refresh_displays() {
-    ./udev/scripts/xrandr/autodetect.sh
+    ./udev/scripts/i3/reload.sh
 }
 
 enable_power_save() {
