@@ -263,6 +263,7 @@ software_list=(
     "rg:ripgrep"
     "get-edid:read-edid"
     "rofi"
+    "rofi-bluetooth-git"
     "sddm"
     "shutter"
     "smartctl:smartmontools"
