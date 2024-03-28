@@ -2,3 +2,6 @@
 	path = nvim/.config/nvim
 	url = git@github.com:peanut-buttermilk/kickstart-modular.nvim.git
 	branch = master
+[submodule "polybar/.config/polybar/rofi-network-manager"]
+	path = polybar/.config/polybar/rofi-network-manager
+	url = git@github.com:peanut-buttermilk/rofi-network-manager.git

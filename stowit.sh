@@ -223,6 +223,13 @@ refresh_displays() {
     ./udev/scripts/i3/reload.sh
 }
 
+setup_network() {
+    sudo systemctl enable NetworkManager.service
+    sudo systemctl disable iwd.service
+    sudo systemctl stop iwd.service
+    sudo systemctl start NetworkManager.service
+}
+
 enable_power_save() {
     sudo systemctl stop tlp.service
     sudo cp ./tlp/etc/tlp.conf /etc/tlp.conf
@@ -237,21 +244,25 @@ refresh_dotfiles
 
 # List of software to check and install
 software_list=(
-    "acpi"
     "aconnect:alsa-utils"
+    "acpi"
     "blueman"
     "bluetoothctl:bluez-utils"
     "bluez"
     "brightnessctl"
     "dig:bind-tools"
+    "dunst"
     "ethtool"
     "feh"
     "fusermount:fuse2"
     "fwupdmgr:fwupd"
     "gcc:base-devel"
+    "get-edid:read-edid"
     "hostname:inetutils"
     "hwinfo"
     "i3lock"
+    "networkmanager"
+    "nm-applet")
     "pavucontrol"
     "powertop"
     "pulseaudio-alsa"
@@ -261,7 +272,6 @@ software_list=(
     "pulseaudio-lirc"
     "pulseaudio-zeroconf"
     "rg:ripgrep"
-    "get-edid:read-edid"
     "rofi"
     "rofi-bluetooth-git"
     "sddm"
@@ -279,7 +289,6 @@ software_list=(
     "xss-lock"
     "zip"
     "zoom"
-)
 
 # Iterate over the associative array
 for software in "${software_list[@]}"; do
@@ -290,6 +299,7 @@ firmware_update
 install_jetbrains_mono_nerd_font
 install_oh_my_zsh
 install_p10k
+# setup_network
 
 echo "Starting to stow dotfiles...: $(pwd)"
 
