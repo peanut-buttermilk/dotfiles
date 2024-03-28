@@ -299,7 +299,7 @@ firmware_update
 install_jetbrains_mono_nerd_font
 install_oh_my_zsh
 install_p10k
-# setup_network
+setup_network
 
 echo "Starting to stow dotfiles...: $(pwd)"
 
