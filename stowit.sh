@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xv
 
 # Ensure the script runs from the directory where it's located
 cd "$(dirname "$0")"
@@ -262,7 +262,7 @@ software_list=(
     "hwinfo"
     "i3lock"
     "networkmanager"
-    "nm-applet")
+    "nm-applet"
     "pavucontrol"
     "powertop"
     "pulseaudio-alsa"
@@ -289,10 +289,13 @@ software_list=(
     "xss-lock"
     "zip"
     "zoom"
+)
 
 # Iterate over the associative array
 for software in "${software_list[@]}"; do
+    echo "[Begin] $software"
     check_and_install "$software"
+    echo "[End] $software"
 done
 
 firmware_update
