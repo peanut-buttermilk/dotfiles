@@ -76,7 +76,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+Shift+p exec "globalprotect launch-ui"
 
 # A more modern dmenu replacement is rofi:
-bindcode $mod+40 exec "rofi -show combi -combi-modes drun,run,window"
+bindcode $mod+40 exec "rofi -show combi -combi-modes window,drun"
 
 # change focus
 bindsym $mod+h focus left
