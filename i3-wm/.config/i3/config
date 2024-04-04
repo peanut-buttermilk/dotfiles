@@ -41,13 +41,6 @@ exec_always --no-startup-id xautolock -time 20 -locker 'i3lock -c 000000' -notif
 # turn off display after 10 mins of inactivity
 exec_always --no-startup-id xset dpms 0 0 600
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
-
-# wallpaper application
-# exec --no-startup-id variety
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
@@ -210,7 +203,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Control+q exec i3lock -c 000000
 
 # disabling feh wallpaper infavor of variety
-exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/OHR.WesternMonarchs_EN-US8386035297_UHD.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/wallpapers/0006.jpg
 
 # shut down the computer after 30 minutes of inactivity
 # exec_always --no-startup-id xautolock -time 30 -locker "systemctl suspend"

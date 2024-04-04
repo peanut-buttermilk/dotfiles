@@ -313,6 +313,7 @@ echo "Starting to stow dotfiles...: $(pwd)"
 declare -a arr=(
     "alacritty"
     "dunst"
+    "feh:wallpapers"
     "fontconfig"
     "i3:i3-wm"
     "ignore:applications"
