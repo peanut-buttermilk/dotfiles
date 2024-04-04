@@ -26,17 +26,11 @@ exec --no-startup-id dex --autostart --environment i3
 # enable X from root for running xrandr when new monitor detected
 exec --no-startup-id xhost +SI:localuser:root
 
-# enable second monitor.
-# exec --no-startup-id xrandr --output DP-0 --mode 3840x2160 --left-of HDMI-0
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- 'i3lock -c 000000' --nofork
-
+# lock screen
+# auto lock
 exec_always --no-startup-id xautolock -time 20 -locker 'i3lock -c 000000' -notify 30 -notifier "notify-send -u critical -t 10000 'LOCKING screen in 30 seconds'"
+# manual lock
+bindsym $mod+Control+q exec i3lock -c 000000
 
 # turn off display after 10 mins of inactivity
 exec_always --no-startup-id xset dpms 0 0 600
@@ -64,9 +58,6 @@ bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# open VPN
-# bindsym $mod+Shift+p exec "globalprotect launch-ui"
 
 # A more modern dmenu replacement is rofi:
 bindcode $mod+40 exec "rofi -show combi -combi-modes window,drun"
@@ -199,15 +190,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# lock screen
-bindsym $mod+Control+q exec i3lock -c 000000
-
 # disabling feh wallpaper infavor of variety
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpapers/0006.jpg
-
-# shut down the computer after 30 minutes of inactivity
-# exec_always --no-startup-id xautolock -time 30 -locker "systemctl suspend"
-
 exec_always --no-startup-id picom -b
 
 #dunst notification
@@ -216,20 +200,13 @@ bindsym $mod+i exec "dunstctl history-pop"
 bindsym $mod+Shift+i exec "dunstctl close-all"
 
 # disable the title bar for all windows
-default_border none
-default_floating_border none
+default_border pixel 3
+default_floating_border pixel 3
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#     status_command i3status
-#     colors {
-#         background #222222
-#         statusline #dddddd
-#         separator #666666
-#         # Define other colors
-#     }
-# 
-# }
+gaps inner 10
+gaps outer  4
+gaps horizontal  4
+gaps outer  10
+smart_gaps on
 
 exec_always ~/.config/polybar/launch.sh &
