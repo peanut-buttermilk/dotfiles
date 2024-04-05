@@ -113,3 +113,4 @@ source $ZSH/oh-my-zsh.sh
 
 # /usr/bin/neofetch
 ZSH_THEME="powerlevel10k/powerlevel10k"
+bindkey -s "^Q" "clear^M"
