@@ -322,6 +322,7 @@ declare -a arr=(
     "picom"
     "rofi"
     "polybar"
+    "ranger"
     "tmux"
     "zsh"
 )
