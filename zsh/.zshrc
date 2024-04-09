@@ -114,3 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # /usr/bin/neofetch
 ZSH_THEME="powerlevel10k/powerlevel10k"
 bindkey -s "^Q" "clear^M"
+
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#  exec sway --unsupported-gpu
+fi
