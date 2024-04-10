@@ -246,6 +246,7 @@ refresh_dotfiles
 software_list=(
     "aconnect:alsa-utils"
     "acpi"
+    "bemenu"
     "blueman"
     "bluetoothctl:bluez-utils"
     "bluez"
