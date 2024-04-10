@@ -292,6 +292,7 @@ software_list=(
     "unzip"
     "upower"
     "waybar"
+    "wdisplays"
     "wget"
     "which"
     "wired"
