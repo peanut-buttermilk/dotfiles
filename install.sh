@@ -345,6 +345,7 @@ declare -a arr=(
     "ranger"
     "sway"
     "tmux"
+    "waybar"
     "zsh"
 )
 
