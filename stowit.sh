@@ -38,7 +38,34 @@ check_and_fail() {
     fi
 }
 
+install_oh_my_zsh() {
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        echo "Installing Oh My Zsh"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended > /dev/null 2>&1
+    else
+        echo "Oh My Zsh is already installed."
+    fi
+}
+
+# Function to install Powerlevel10k
+run_install_powerlevel10k() {
+    echo "Installing Powerlevel10k theme..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >>~/.zshrc
+}
+
+install_p10k() {
+
+    if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+        run_install_powerlevel10k
+    else
+        echo "Powerlevel10k theme is already installed."
+    fi
+}
+
 refresh_dotfiles
+install_oh_my_zsh
+install_p10k
 
 echo "Starting to stow dotfiles...: $(pwd)"
 
@@ -47,8 +74,8 @@ declare -a arr=(
     "ignore:wallpapers"
     "fontconfig"
     "Hyprland:hypr"
-    "i3:i3-wm"
     "ignore:applications"
+    "ignore:p10k"
     "kitty"
     "nvim"
     "zsh"
