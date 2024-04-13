@@ -78,6 +78,7 @@ declare -a arr=(
     "ignore:p10k"
     "kitty"
     "nvim"
+    "rofi"
     "waybar"
     "zsh"
 )

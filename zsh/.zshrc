@@ -115,6 +115,11 @@ source $ZSH/oh-my-zsh.sh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 bindkey -s "^Q" "clear^M"
 
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
+
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 #  exec sway --unsupported-gpu
 fi
