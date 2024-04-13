@@ -282,7 +282,7 @@ software_list=(
     "pulseaudio-zeroconf"
     "python-pillow"
     "rg:ripgrep"
-    "rofi"
+    "rofi-wayland"
     "rofi-bluetooth-git"
     "sddm"
     "shutter"
