@@ -262,6 +262,7 @@ software_list=(
     "gcc:base-devel"
     "get-edid:read-edid"
     "hostname:inetutils"
+    "hyprpaper"
     "hwinfo"
     "i3lock"
     "libnotify"
