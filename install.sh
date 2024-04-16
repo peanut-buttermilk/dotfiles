@@ -311,6 +311,10 @@ software_list=(
     "xss-lock"
     "zip"
     "zoom"
+    "fzf"
+    "pipewire"
+    "wireplumber"
+    "polkit-kde-agent"
 )
 
 # Iterate over the associative array
