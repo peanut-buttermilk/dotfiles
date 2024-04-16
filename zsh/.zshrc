@@ -121,5 +121,5 @@ if [ -n "${commands[fzf-share]}" ]; then
 fi
 
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-#  exec sway --unsupported-gpu
+  exec Hyprland
 fi
