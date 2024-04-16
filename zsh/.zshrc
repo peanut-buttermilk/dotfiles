@@ -115,6 +115,10 @@ source $ZSH/oh-my-zsh.sh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 bindkey -s "^Q" "clear^M"
 
+if [ -n "${commands[fzf]}" ]; then
+  eval "$(fzf --zsh)"
+fi
+
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
