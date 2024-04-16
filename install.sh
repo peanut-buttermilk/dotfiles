@@ -315,6 +315,7 @@ software_list=(
     "pipewire"
     "wireplumber"
     "polkit-kde-agent"
+    "chrony"
 )
 
 # Iterate over the associative array
