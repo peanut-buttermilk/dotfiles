@@ -114,7 +114,7 @@ button:hover {
 
 #battery {
     background-color: #ffffff;
-    color: #000000;
+    color: #ffffff;
 }
 
 #battery.charging, #battery.plugged {
@@ -156,7 +156,7 @@ button:hover {
 
 #power-profiles-daemon.power-saver {
     background-color: #2ecc71;
-    color: #000000;
+    color: #ffffff;
 }
 
 label:focus {
@@ -165,7 +165,7 @@ label:focus {
 
 #cpu {
     background-color: #2ecc71;
-    color: #000000;
+    color: #ffffff;
 }
 
 #memory {
@@ -190,7 +190,7 @@ label:focus {
 
 #pulseaudio {
     background-color: #f1c40f;
-    color: #000000;
+    color: #ffffff;
 }
 
 #pulseaudio.muted {
@@ -200,7 +200,7 @@ label:focus {
 
 #wireplumber {
     background-color: #fff0f5;
-    color: #000000;
+    color: #ffffff;
 }
 
 #wireplumber.muted {
@@ -278,7 +278,7 @@ label:focus {
 
 #keyboard-state {
     background: #97e1ad;
-    color: #000000;
+    color: #ffffff;
     padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;
