@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
+    background-color: #64727D;
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
     transition-property: background-color;
@@ -87,6 +87,8 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-notification,
+#custom-power,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -215,6 +217,14 @@ label:focus {
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;
+}
+
+#custom-power {
+    background-color: #64727D;
+}
+
+#custom-notification {
+    background-color: #64727D;
 }
 
 #custom-media.custom-spotify {
