@@ -56,6 +56,7 @@ run_install_powerlevel10k() {
 
 install_p10k() {
 
+    echo "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
     if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
         run_install_powerlevel10k
     else
