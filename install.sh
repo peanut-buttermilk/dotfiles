@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Ensure the script runs from the directory where it's located
 cd "$(dirname "$0")"
