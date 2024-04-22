@@ -2,6 +2,8 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrainsMono;
     font-size: 19px;
+    widget-bg-color:#64727D;
+    widget-color:#64727D;
 }
 
 window#waybar {
@@ -120,7 +122,7 @@ button:hover {
 
 #battery {
     background-color: #64727D;
-    color: #ffffff;
+    color: #000000;
 }
 
 #battery.charging, #battery.plugged {
@@ -171,7 +173,7 @@ label:focus {
 
 #cpu {
     background-color: #64727D;
-    color: #ffffff;
+    color: #000000;
 }
 
 #memory {
@@ -196,7 +198,7 @@ label:focus {
 
 #pulseaudio {
     background-color: #64727D;
-    color: #ffffff;
+    color: #000000;
 }
 
 #pulseaudio.muted {
