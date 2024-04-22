@@ -1,9 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrainsMono;
-    font-size: 19px;
-    widget-bg-color:#64727D;
-    widget-color:#64727D;
+    font-size: 12px;
 }
 
 window#waybar {
@@ -122,7 +120,7 @@ button:hover {
 
 #battery {
     background-color: #64727D;
-    color: #000000;
+    color: #ffffff;
 }
 
 #battery.charging, #battery.plugged {
@@ -164,7 +162,7 @@ button:hover {
 
 #power-profiles-daemon.power-saver {
     background-color: #2ecc71;
-    color: #000000;
+    color: #ffffff;
 }
 
 label:focus {
@@ -173,7 +171,7 @@ label:focus {
 
 #cpu {
     background-color: #64727D;
-    color: #000000;
+    color: #ffffff;
 }
 
 #memory {
@@ -198,7 +196,7 @@ label:focus {
 
 #pulseaudio {
     background-color: #64727D;
-    color: #000000;
+    color: #ffffff;
 }
 
 #pulseaudio.muted {
@@ -208,7 +206,7 @@ label:focus {
 
 #wireplumber {
     background-color: #64727D;
-    color: #000000;
+    color: #ffffff;
 }
 
 #wireplumber.muted {
@@ -217,7 +215,7 @@ label:focus {
 
 #custom-media {
     background-color: #66cc99;
-    color: #2a5c45;
+    color: #ffffff;
     min-width: 100px;
 }
 
@@ -293,7 +291,7 @@ label:focus {
 
 #keyboard-state {
     background: #97e1ad;
-    color: #000000;
+    color: #ffffff;
     padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;
