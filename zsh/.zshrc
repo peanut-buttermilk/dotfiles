@@ -115,14 +115,13 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 bindkey -s "^Q" "clear^M"
 
-if [ -n "${commands[fzf]}" ]; then
-  eval "$(fzf --zsh)"
-fi
-
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
+elif [ -n "${commands[fzf]}" ]; then
+  eval "$(fzf --zsh)"
 fi
+
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
