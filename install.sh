@@ -306,6 +306,7 @@ software_list=(
     "which"
     "wired"
     "wlogout"
+    "wl-copy:wl-clipboard"
     "wofi"
     "wmenu"
     "xautolock"
@@ -319,6 +320,8 @@ software_list=(
     "wireplumber"
     "polkit-kde-agent"
     "chrony"
+    "grim"
+    "slurp"
 )
 
 # Iterate over the associative array
