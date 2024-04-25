@@ -357,10 +357,10 @@ declare -a arr=(
     "rofi"
     "polybar"
     "ranger"
-    "sway"
     "tmux"
     "waybar"
     "zsh"
+    "kanshi"
 )
 
 ## now loop through the above array
