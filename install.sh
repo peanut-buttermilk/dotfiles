@@ -324,6 +324,7 @@ software_list=(
     "chrony"
     "grim"
     "slurp"
+    "hyprlock"
 )
 
 # Iterate over the associative array
