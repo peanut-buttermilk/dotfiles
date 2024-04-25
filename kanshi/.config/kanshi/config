@@ -1,0 +1,9 @@
+profile rwc_office {
+	output eDP-1 disable
+	output "Dell Inc. DELL P2715Q 54KKD65CAM7L" mode 3840x2160 position 0,0
+	output "Dell Inc. DELL P2721Q CY21WD3" mode 3840x2160 position 3840,0
+}
+
+profile laptop {
+	output eDP-1 enable scale 2
+}
