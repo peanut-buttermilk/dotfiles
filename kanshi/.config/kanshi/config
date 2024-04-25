@@ -5,5 +5,5 @@ profile rwc_office {
 }
 
 profile laptop {
-	output eDP-1 enable scale 2
+	output eDP-1 enable
 }
