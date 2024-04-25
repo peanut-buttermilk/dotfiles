@@ -308,6 +308,7 @@ software_list=(
     "which"
     "wired"
     "wlogout"
+    "wlsunset"
     "wl-copy:wl-clipboard"
     "wofi"
     "wmenu"
