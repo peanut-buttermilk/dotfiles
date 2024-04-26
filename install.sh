@@ -264,6 +264,7 @@ software_list=(
     "get-edid:read-edid"
     "hostname:inetutils"
     "hyprpaper"
+    "hyprpicker"
     "hwinfo"
     "i3lock"
     "libnotify"
@@ -325,6 +326,8 @@ software_list=(
     "grim"
     "slurp"
     "hyprlock"
+    "xdg-desktop-portal-hyprland"
+    "xdg-desktop-portal-gtk"
 )
 
 # Iterate over the associative array
