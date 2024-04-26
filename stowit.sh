@@ -83,6 +83,7 @@ declare -a arr=(
     "rofi"
     "waybar"
     "zsh"
+    "kanshi"
 )
 
 ## now loop through the above array
