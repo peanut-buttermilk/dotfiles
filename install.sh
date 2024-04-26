@@ -328,6 +328,8 @@ software_list=(
     "hyprlock"
     "xdg-desktop-portal-hyprland"
     "xdg-desktop-portal-gtk"
+    "qt6-wayland"
+    "obs-studio"
 )
 
 # Iterate over the associative array
