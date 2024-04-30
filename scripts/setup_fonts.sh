@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 install_jetbrains_mono_nerd_font() {
     # Check if JetBrains Mono Nerd Font is already installed
@@ -20,7 +21,7 @@ install_jetbrains_mono_nerd_font() {
     wget -qO "$FONT_DIR/JetBrainsMono.zip" "$FONT_URL"
 
     # Navigate to the font directory
-    pushd "$FONT_DIR"
+    pushd "$FONT_DIR" || exit
 
     # Unzip the fonts
     echo " >> Extracting fonts..."
@@ -34,7 +35,7 @@ install_jetbrains_mono_nerd_font() {
     fc-cache -fv
 
     echo " >> JetBrains Mono Nerd Font installation complete!"
-    popd
+    popd || exit
 }
 
 wrap install_jetbrains_mono_nerd_font

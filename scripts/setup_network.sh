@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 setup_network() {
     sudo systemctl enable NetworkManager.service

@@ -50,7 +50,7 @@ main() {
      
        # Stow tmux configuration
        if [ -d "$package" ]; then
-           wrap stow $package
+           stow "$package"
        else
            echo " >> $package not found"
        fi

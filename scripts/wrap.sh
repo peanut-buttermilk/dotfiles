@@ -5,7 +5,7 @@ wrap() {
     echo "[Start] starting $1"
 
     # Start the command, tee its output to both sed and stdout, then stream to sed
-    "$@" 2>&1 | sed -e "$sed_command" >&2
+    "$@" 2>&1 | sed -u -e "$sed_command" >&2
 
     echo "[End] ending $1"
 }

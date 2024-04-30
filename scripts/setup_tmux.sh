@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 install_tmux() {
    if [ -d "$HOME/.tmux/plugins/tpm" ]; then

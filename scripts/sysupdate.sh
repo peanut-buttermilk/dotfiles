@@ -1,14 +1,15 @@
-
+#!/usr/bin/env bash
+#
 # Update system packages based on the operating system
 setup_yay() {
     if ! command -v yay &> /dev/null; then
         sudo pacman -S --noconfirm git base-devel git
         TEMP=$(mktemp)
-        git clone sudo git clone https://aur.archlinux.org/yay.git $TEMP
-        pushd $TEMP
+        git clone sudo git clone https://aur.archlinux.org/yay.git "$TEMP"
+        pushd "$TEMP" || exit
         makepkg -si
-        popd
-        rm -rf $TEMP
+        popd || exit
+        rm -rf "$TEMP"
     else
         echo " >> yay is already installed."
     fi

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 install_oh_my_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -12,7 +13,7 @@ install_oh_my_zsh() {
 run_install_powerlevel10k() {
     echo " >> Installing Powerlevel10k theme..."
 
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/powerlevel10k"
     echo ' >> source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 }
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 enable_power_save() {
     sudo systemctl stop tlp.service

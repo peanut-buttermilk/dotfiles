@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 install_udev_rules() {
     sudo cp -rv ~/dotfiles/udev/rules.d/* /etc/udev/rules.d/

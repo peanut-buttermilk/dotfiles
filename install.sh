@@ -107,6 +107,7 @@ main() {
         "xdg-desktop-portal-gtk"
         "qt6-wayland"
         "obs-studio"
+        "shellcheck"
     )
     
     # Iterate over the associative array
@@ -157,7 +158,7 @@ main() {
      
        # Stow tmux configuration
        if [ -d "$package" ]; then
-           wrap stow $package
+           stow "$package"
        else
            echo " >> $package not found"
        fi
