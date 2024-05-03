@@ -54,7 +54,9 @@ bindsym $mod+Shift+q kill
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "wofi --show drun"
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+# set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu = rofi -show combi -combi-modes window,drun
+bindcode $mod+40 exec $menu
 
 
 # change focus
@@ -155,8 +157,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'swaymsg exit'"
+# bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'swaymsg exit'"
 
+bindsym $mod+Shift+e exec wlogout --protocol layer-shell
 #
 # Scratchpad:
 #
@@ -220,5 +223,5 @@ gaps horizontal  4
 gaps outer 4
 smart_gaps on
 
-exec_always waybar &
+exec_always waybar -c ~/.config/waybar/waybar.conf
 

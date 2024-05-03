@@ -31,5 +31,8 @@ fi
 
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec Hyprland
+elif [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 2 ]; then
+  export WLR_NO_HARDWARE_CURSORS=1
+  exec sway --unsupported-gpu
 fi
 source ~/powerlevel10k/powerlevel10k.zsh-theme
