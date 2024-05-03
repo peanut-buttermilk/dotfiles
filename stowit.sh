@@ -35,6 +35,7 @@ main() {
         "waybar"
         "zsh"
         "kanshi"
+        "tmux"
     )
     
     ## now loop through the above array
