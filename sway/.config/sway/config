@@ -222,5 +222,20 @@ gaps horizontal  4
 gaps outer 4
 smart_gaps on
 
+# swayfx
+
+blur enable
+blur_passes 3 
+blur_radius 5 
+blur_noise 1
+blur_brightness 1
+blur_contrast 1
+blur_saturation 1
+
+shadows enable
+shadows_on_csd enable
+shadow_blur_radius 20
+
+default_dim_inactive 0.0
 exec_always ~/.config/waybar/scripts/launch.sh
 

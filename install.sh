@@ -71,7 +71,7 @@ main() {
         "rofi-bluetooth-git"
         "smartctl:smartmontools"
         "stow"
-        "sway"
+        "swayfx"
         "swaylock"
         "swayidle"
         "swaybg"
