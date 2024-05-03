@@ -208,9 +208,11 @@ bindsym $mod+r mode "resize"
 output "*" bg ~/.config/wallpapers/0007.jpg fill
 
 #dunst notification
-exec_always --no-startup-id /usr/bin/dunst
-bindsym $mod+i exec "dunstctl history-pop"
-bindsym $mod+Shift+i exec "dunstctl close-all"
+exec_always nm-applet
+exec_always blueman-applet
+exec_always --no-startup-id swaync
+bindsym $mod+i exec "swaync-client -t -sw"
+# bindsym $mod+Shift+i exec "dunstctl close-all"
 
 # disable the title bar for all windows
 default_border pixel 3
