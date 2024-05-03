@@ -222,5 +222,5 @@ gaps horizontal  4
 gaps outer 4
 smart_gaps on
 
-exec_always waybar -c ~/.config/waybar/waybar.conf
+exec_always ~/.config/waybar/scripts/launch.sh
 
