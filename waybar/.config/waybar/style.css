@@ -82,6 +82,10 @@ button:hover {
     border-radius: 10px;
 }
 
+#window {
+    min-width: 450px;
+}
+
 #cpu,
 #pulseaudio,
 #clock {
