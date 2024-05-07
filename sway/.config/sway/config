@@ -208,7 +208,7 @@ bindsym $mod+r mode "resize"
 output "*" bg ~/.config/wallpapers/0007.jpg fill
 
 #dunst notification
-exec_always nm-applet
+exec_always nm-applet --indicator
 exec_always blueman-applet
 exec_always --no-startup-id swaync
 bindsym $mod+i exec "swaync-client -t -sw"
