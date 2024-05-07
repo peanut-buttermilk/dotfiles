@@ -71,14 +71,13 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 5px;
+    padding: 1 10px;
     background: #64727D;
 }
 
 #window,
 #workspaces {
-    padding: 0 10px;
-    margin: 0 4px;
+    padding: 1 10px;
     background: #64727D;
     border-radius: 10px;
 }
@@ -96,6 +95,7 @@ button:hover {
 }
 
 #custom-power {
+    padding: 0 3px;
     border-radius: 10px 10px 10px 10px;
 }
 /* If workspaces is the leftmost module, omit left margin */
