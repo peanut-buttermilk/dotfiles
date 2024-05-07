@@ -139,6 +139,11 @@ bindsym $mod+Control+2 move workspace to output DP-2
 bindsym $mod+Control+3 move workspace to output DP-3
 bindsym $mod+Control+4 move workspace to output DP-4
 
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+l move workspace to output right
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
