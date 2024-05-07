@@ -86,6 +86,7 @@ button:hover {
 
 #window,
 #workspaces {
+    padding: 0 10px;
     margin: 0 4px;
     background: #64727D;
 }
