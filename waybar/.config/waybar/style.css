@@ -1,9 +1,9 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrainsMono;
-    font-size: 15px;
-    border: 3px;
-    background: rgba(12, 12, 12, 0.1);
+    font-size: 18px;
+    border: 0px;
+    background: rgba(12, 12, 12, 0.0);
     color: #ffffff;
 }
 
@@ -72,14 +72,18 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 1 10px;
-    background: #64727D;
+    background: rgb(53,87,61);
+    background: radial-gradient(circle, rgba(53,87,61,0.8295693277310925) 0%, rgba(49,57,60,1) 100%);
 }
+
+/* https://cssgradient.io/ */
 
 #window,
 #workspaces {
     padding: 1 10px;
-    background: #64727D;
     border-radius: 10px;
+    background: rgb(53,87,61);
+    background: radial-gradient(circle, rgba(53,87,61,0.8295693277310925) 0%, rgba(49,57,60,1) 100%);
 }
 
 #window {
