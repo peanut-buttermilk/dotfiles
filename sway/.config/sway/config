@@ -220,14 +220,13 @@ bindsym $mod+i exec "swaync-client -t -sw"
 # bindsym $mod+Shift+i exec "dunstctl close-all"
 
 # disable the title bar for all windows
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 0
+default_floating_border pixel 0
 
-gaps inner 4
-gaps outer 4
-gaps horizontal  4
-gaps outer 4
-smart_gaps on
+# gaps inner 2
+# gaps outer 1
+# gaps horizontal  2
+# smart_gaps on
 
 # GTK
 exec {
@@ -240,13 +239,13 @@ exec {
 }
 # swayfx
 
-blur enable
-blur_passes 3 
-blur_radius 5 
-blur_noise 1
-blur_brightness 1
-blur_contrast 1
-blur_saturation 1
+# blur enable
+# blur_passes 3
+# blur_radius 5
+# blur_noise 1
+# blur_brightness 1
+# blur_contrast 1
+# blur_saturation 1
 
 shadows enable
 shadows_on_csd enable

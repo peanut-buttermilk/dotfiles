@@ -87,7 +87,7 @@ button:hover {
 }
 
 #window {
-    min-width: 450px;
+    /* min-width: 450px; */
 }
 
 #cpu,
