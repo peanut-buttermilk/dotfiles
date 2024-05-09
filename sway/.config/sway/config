@@ -133,6 +133,10 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+assign [class="Zoom"] $ws4
+assign [class="Chromium"] $ws5
+assign [class="Google-chrome-stable"] $ws5
+
 bindsym $mod+Control+0 move workspace to output eDP-1
 bindsym $mod+Control+1 move workspace to output DP-1
 bindsym $mod+Control+2 move workspace to output DP-2
