@@ -65,6 +65,7 @@ button:hover {
 #custom-media,
 #custom-notification,
 #custom-power,
+#custom-updates,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -161,7 +162,7 @@ label:focus {
     background-color: #f53c3c;
 }
 #pulseaudio.muted {
-    background-color: #90b1b1;
+    background: #90b1b1;
     color: #2a5c45;
 }
 

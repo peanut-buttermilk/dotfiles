@@ -22,6 +22,9 @@ main() {
     source ./scripts/pkg_install.sh
     # List of software to check and install
     software_list=(
+        "waybar-module-pacman-updates-git"
+        "bat"
+        "neofetch"
         "aconnect:alsa-utils"
         "acpi"
         "bemenu"
