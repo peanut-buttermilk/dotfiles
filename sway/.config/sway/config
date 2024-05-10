@@ -136,6 +136,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+for_window [class="Google Chat"] move container to workspace $ws2
 for_window [class="zoom"] move container to workspace $ws4
 for_window [class="Chromium"] move container to workspace $ws5
 for_window [class="Google-chrome-stable"] move container to workspace $ws5
