@@ -31,10 +31,19 @@ elif [ -n "${commands[fzf]}" ]; then
   eval "$(fzf --zsh)"
 fi
 
+if [ -z "${WAYLAND_DISPLAY}" ]; then
+  export QT_QPA_PLATFORMTHEME="qt5ct"
+  export QT_QPA_PLATFORM=wayland
+fi
+
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  export XDG_CURRENT_DESKTOP=Hyprland
+  export XDG_SESSION_DESKTOP=Hyprland
   exec Hyprland
 elif [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 2 ]; then
   export WLR_NO_HARDWARE_CURSORS=1
+  export XDG_CURRENT_DESKTOP=sway
+  export XDG_SESSION_DESKTOP=sway
   exec sway --unsupported-gpu
 fi
 source ~/powerlevel10k/powerlevel10k.zsh-theme

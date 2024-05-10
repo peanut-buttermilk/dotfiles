@@ -15,6 +15,9 @@ font pango:JetBrainsMono Nerd Font 18
 # enable X from root for running xrandr when new monitor detected
 # exec --no-startup-id xhost +SI:localuser:root
 
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # lock screen
 # auto lock
 exec swayidle -w \

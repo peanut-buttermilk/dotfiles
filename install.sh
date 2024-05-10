@@ -22,6 +22,10 @@ main() {
     source ./scripts/pkg_install.sh
     # List of software to check and install
     software_list=(
+        "nvlax-git"
+        "dkms"
+        "linux-headers"
+        "v4l2loopback-dkms"
         "waybar-module-pacman-updates-git"
         "bat"
         "neofetch"
@@ -107,8 +111,11 @@ main() {
         "slurp"
         "hyprlock"
         "xdg-desktop-portal-hyprland"
+        "xdg-desktop-portal-wlr"
+        "xdg-desktop-portal"
         "xdg-desktop-portal-gtk"
         "qt6-wayland"
+        "qt5-wayland"
         "obs-studio"
         "shellcheck"
     )
