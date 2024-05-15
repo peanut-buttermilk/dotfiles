@@ -7,6 +7,11 @@
     color: #ffffff;
 }
 
+tooltip {
+     border-radius: 4px;
+     background-color: rgb(53,87,61);
+}
+
 window#waybar.hidden {
     opacity: 0.2;
 }

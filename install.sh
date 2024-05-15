@@ -80,7 +80,7 @@ main() {
         "smartctl:smartmontools"
         "stow"
         "swayfx"
-        "swaylock"
+        "swaylock-effects-git"
         "swayidle"
         "swaybg"
         "swaync"
