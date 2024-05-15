@@ -22,6 +22,7 @@ main() {
     source ./scripts/pkg_install.sh
     # List of software to check and install
     software_list=(
+        "ttf-indic-otf"
         "nvlax-git"
         "dkms"
         "linux-headers"
