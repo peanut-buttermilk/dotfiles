@@ -238,12 +238,13 @@ gaps horizontal  2
 
 # GTK
 exec {
-    gsettings set org.gtk.Settings.FileChooser window-size '(1000, 500)'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-Dark'
     gsettings set org.gnome.desktop.interface.wm.preferences theme 'Adwaita-Dark'
-    # gsettings set org.gnome.desktop.interface icon-theme 'Sweet-Rainbow'
+    gsettings set org.gnome.desktop.interface icon-theme 'Sweet-Rainbow'
     gsettings set org.gnome.desktop.interface cursor-size '48'
     gsettings set org.gnome.desktop.interface font-name 'JetBrainsMono Nerd Font 18'
+    gsettings set org.gtk.Settings.FileChooser window-size '(1000, 500)'
 }
 # swayfx
 
