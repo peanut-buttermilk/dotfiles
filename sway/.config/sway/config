@@ -59,7 +59,7 @@ bindsym $mod+Shift+q kill
 # bindcode $mod+40 exec "wofi --show drun"
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu = rofi -show combi -combi-modes window,drun
-bindsym $mod+d exec "rofi -show combi -combi-modes window,drun"
+bindsym $mod+space exec "rofi -show combi -combi-modes ssh,window,drun"
 
 # change focus
 bindsym $mod+h focus left
@@ -97,7 +97,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
