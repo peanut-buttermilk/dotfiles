@@ -47,3 +47,9 @@ elif [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 2 ]; then
   exec sway --unsupported-gpu
 fi
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bcherukuri/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bcherukuri/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bcherukuri/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bcherukuri/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
