@@ -53,3 +53,8 @@ if [ -f '/Users/bcherukuri/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bcherukuri/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bcherukuri/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias desk="gcloud compute ssh balaji-vm --zone us-west1-a --project lofty-hearth-389420"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
