@@ -45,3 +45,24 @@ if [ -f '/home/balaji_vinci4d_ai/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 if [ -f '/home/balaji_vinci4d_ai/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/balaji_vinci4d_ai/google-cloud-sdk/completion.zsh.inc'; fi
 
 
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  export XDG_CURRENT_DESKTOP=Hyprland
+  export XDG_SESSION_DESKTOP=Hyprland
+  exec Hyprland
+elif [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 2 ]; then
+  export WLR_NO_HARDWARE_CURSORS=1
+  export XDG_CURRENT_DESKTOP=sway
+  export XDG_SESSION_DESKTOP=sway
+  exec sway --unsupported-gpu
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bcherukuri/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bcherukuri/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bcherukuri/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bcherukuri/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias desk="gcloud compute ssh balaji-vm --zone us-west1-a --project lofty-hearth-389420"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
